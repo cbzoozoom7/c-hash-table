@@ -1,6 +1,6 @@
-/* 
- * your comment header here
- */
+//main.h
+//Chris Bowman
+//Recieved 19 Mar 2023
 
 #ifndef MAIN_H
 #define MAIN_H
