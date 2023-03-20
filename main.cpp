@@ -67,10 +67,38 @@ int main() {
     // do whatever it takes to full test your object and prove it
     // is robust and can handle all use cases.
     for (int i = 0; i < testdatasize; i++) {
-        cout << "Getting " << ids[i] << ": " << myHashTable.getData(ids[i]) << endl;
+        cout << "Getting " << ids[i] << ": \"" << myHashTable.getData(ids[i]) << "\"" << endl;
     }
-    
-    
+    for (int i = 0; i < testdatasize; i++) {
+        cout << "Removing " << ids[i] << "... ";
+        if (myHashTable.removeEntry(ids[i])) {
+            cout << "done." << endl;
+        } else {
+            cout << "failed." << endl;
+        }
+    }
+    cout << "Filling halfway in preparation for random testing... ";
+    for (int i = 0; i < (HASHTABLESIZE / 2); i++) {
+        int testIndex = i % testdatasize;
+        
+    }
+    cout << "done." << endl;
+    for (int i = 0; i < (testdatasize * testdatasize); i++) {
+        switch (rand() % SWITCHOPS) {
+            case 0:
+            case 1:
+                int randTestDataIndex = rand() % testdatasize;
+                cout << "Adding (" << ids[randTestDataIndex] << ", \"" << strs[randTestDataIndex] << "\")... ";//Adding (5, "five")... 
+                if (myHashTable.insertEntry(ids[randTestDataIndex], &strs[randTestDataIndex])) {
+                    cout << "done." << endl;
+                } else {
+                    cout << "failed." << endl;
+                }
+            break;
+            case 2:
+            case 3:
+        }
+    }
     
     
     return 0;
