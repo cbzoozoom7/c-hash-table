@@ -9,7 +9,7 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 #include <string>       /* string */
-
+#include "hashtable.h"
 #define BUFFERSIZE 8
 #define MAXID 100
 #define BASE 5
