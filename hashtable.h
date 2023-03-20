@@ -3,6 +3,7 @@
 //Created 19 Mar 2023
 #ifndef HASHTABLE_H
     #define HASHTABLE_H
+    #define HASHTABLESIZE 15
     #include <string>
     using std::string;
     class HashTable {

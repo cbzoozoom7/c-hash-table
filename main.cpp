@@ -77,29 +77,52 @@ int main() {
             cout << "failed." << endl;
         }
     }
-    cout << "Filling halfway in preparation for random testing... ";
-    for (int i = 0; i < (HASHTABLESIZE / 2); i++) {
-        int testIndex = i % testdatasize;
-        
+    cout << "count: " << myHashTable.getCount() << endl;
+    myHashTable.printTable();
+    cout << "Filling halfway in preparation for random testing... " << endl;
+    for (int i = 0; i < (HASHTABLESIZE / 2) && i < testdatasize; i++) {
+        cout << "Adding (" << ids[i] << ", \"" << strs[i] << "\")... ";//Adding (5, "five")... 
+        if (myHashTable.insertEntry(ids[i], &strs[i])) {
+            cout << "done." << endl;
+        } else {
+            cout << "failed." << endl;
+        }
     }
-    cout << "done." << endl;
+    cout << "count: " << myHashTable.getCount() << endl;
+    myHashTable.printTable();
+    cout << "Random tests:" << endl;
     for (int i = 0; i < (testdatasize * testdatasize); i++) {
+        int randTestDataIndex = rand() % testdatasize;
         switch (rand() % SWITCHOPS) {
             case 0:
-            case 1:
-                int randTestDataIndex = rand() % testdatasize;
+            case 1: {
                 cout << "Adding (" << ids[randTestDataIndex] << ", \"" << strs[randTestDataIndex] << "\")... ";//Adding (5, "five")... 
                 if (myHashTable.insertEntry(ids[randTestDataIndex], &strs[randTestDataIndex])) {
                     cout << "done." << endl;
                 } else {
                     cout << "failed." << endl;
                 }
-            break;
-            case 2:
-            case 3:
+            break;}
+            case 2: {
+                cout << "Getting " << ids[randTestDataIndex] << ": \"" << myHashTable.getData(ids[randTestDataIndex]) << "\"" << endl;
+                break;}
+            case 3: {
+                cout << "Removing " << ids[randTestDataIndex] << "... ";
+                if (myHashTable.removeEntry(ids[randTestDataIndex])) {
+                    cout << "done." << endl;
+                } else {
+                    cout << "failed." << endl;
+                }
+            break;}
+            case 4: {
+                cout << "count: " << myHashTable.getCount() << endl;
+            break;}
+            default: {
+                myHashTable.printTable();
+            break;}
         }
     }
-    
+    myHashTable.printTable();
     
     return 0;
 }
