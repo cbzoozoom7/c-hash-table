@@ -15,6 +15,7 @@
 #define BASE 5
 #define OFFSET 20
 #define SWITCHOPS 4
+#define RANDOMTESTSCALE 10
 using std::cout;
 using std::endl;
 using std::string;

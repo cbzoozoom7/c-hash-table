@@ -22,14 +22,14 @@ string HashTable::getData(int id) {
     }
     return result;
 }
+bool HashTable::removeEntry(int id) {
+    return table[hash(id)].deleteNode(id);
+}
 HashTable::HashTable() {
     
 }
 HashTable::~HashTable() {
     
-}
-bool HashTable::removeEntry(int id) {
-    return false;
 }
 int HashTable::getCount() {
     return -1;

@@ -91,7 +91,7 @@ int main() {
     cout << "count: \t" << myHashTable.getCount() << endl;
     myHashTable.printTable();
     cout << "Random tests:" << endl;
-    for (int i = 0; i < (testdatasize * SWITCHOPS); i++) {
+    for (int i = 0; i < (testdatasize * RANDOMTESTSCALE); i++) {
         int randTestDataIndex = rand() % testdatasize;
         switch (rand() % SWITCHOPS) {
             case 0:
