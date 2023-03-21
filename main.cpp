@@ -50,7 +50,7 @@ int main() {
     // create your hash table object here
     HashTable myHashTable;
     // show it is empty by calling getCount and printTable
-    cout << "Created. \tcount: " << myHashTable.getCount() << endl;
+    cout << "Created. \tcount: \t" << myHashTable.getCount() << endl;
     myHashTable.printTable();
     // try and put ALL the test data into the table and show what happens
     for (int i = 0; i < testdatasize; i++) {
@@ -61,13 +61,13 @@ int main() {
             cout << "failed." << endl;
         }
     }
-    cout << "count: " << myHashTable.getCount() << endl;
+    cout << "count: \t" << myHashTable.getCount() << endl;
     myHashTable.printTable();
     // continue using and testing your table, add and remove data,
     // do whatever it takes to full test your object and prove it
     // is robust and can handle all use cases.
     for (int i = 0; i < testdatasize; i++) {
-        cout << "Getting " << ids[i] << ": \"" << myHashTable.getData(ids[i]) << "\"" << endl;
+        cout << "Getting " << ids[i] << ": \t\"" << myHashTable.getData(ids[i]) << "\"" << endl;
     }
     for (int i = 0; i < testdatasize; i++) {
         cout << "Removing " << ids[i] << "... \t";
@@ -77,7 +77,7 @@ int main() {
             cout << "failed." << endl;
         }
     }
-    cout << "count: " << myHashTable.getCount() << endl;
+    cout << "count: \t" << myHashTable.getCount() << endl;
     myHashTable.printTable();
     cout << "Filling halfway in preparation for random testing... " << endl;
     for (int i = 0; i < (HASHTABLESIZE / 2) && i < testdatasize; i++) {
@@ -88,10 +88,10 @@ int main() {
             cout << "failed." << endl;
         }
     }
-    cout << "count: " << myHashTable.getCount() << endl;
+    cout << "count: \t" << myHashTable.getCount() << endl;
     myHashTable.printTable();
     cout << "Random tests:" << endl;
-    for (int i = 0; i < (testdatasize * testdatasize); i++) {
+    for (int i = 0; i < (testdatasize * SWITCHOPS); i++) {
         int randTestDataIndex = rand() % testdatasize;
         switch (rand() % SWITCHOPS) {
             case 0:
@@ -104,7 +104,7 @@ int main() {
                 }
             break;}
             case 2: {
-                cout << "Getting " << ids[randTestDataIndex] << ": \"" << myHashTable.getData(ids[randTestDataIndex]) << "\"" << endl;
+                cout << "Getting " << ids[randTestDataIndex] << ": \t\"" << myHashTable.getData(ids[randTestDataIndex]) << "\"" << endl;
                 break;}
             case 3: {
                 cout << "Removing " << ids[randTestDataIndex] << "... \t";
@@ -115,7 +115,7 @@ int main() {
                 }
             break;}
             case 4: {
-                cout << "count: " << myHashTable.getCount() << endl;
+                cout << "count: \t" << myHashTable.getCount() << endl;
             break;}
             default: {
                 myHashTable.printTable();

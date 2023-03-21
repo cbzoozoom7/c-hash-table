@@ -11,12 +11,17 @@ void LinkedList::printData(Data *d) {
 void LinkedList::printList(bool backward) {
     Node *current = head;
     if (!backward) {
+        bool empty = true;
         while (current) {
+            empty = false;
             std::cout << current->data.id;
             current = current->next;
             if (current) {
-                std::cout << " --> ";
+                std::cout << ", \t";
             }
+        }
+        if (empty) {
+            std::cout << "EMPTY";
         }
         std::cout << std::endl;
     }

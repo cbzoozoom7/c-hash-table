@@ -10,18 +10,23 @@ bool HashTable::insertEntry(int id, string *data) {
 }
 void HashTable::printTable() {
     for (int i = 0; i < HASHTABLESIZE; i++) {
-        std::cout << "Entry " << i << ": ";
+        std::cout << "Entry " << i << ": \t";//On the assignment, the index appears to start at 1. Should I be adding 1 or something?
         table[i].printList();
     }
+}
+string HashTable::getData(int id) {
+    string result = "";
+    Data *d = new Data;
+    if (table[hash(id)].getNode(id, d)) {
+        result = d->data;
+    }
+    return result;
 }
 HashTable::HashTable() {
     
 }
 HashTable::~HashTable() {
     
-}
-string HashTable::getData(int id) {
-    return "";
 }
 bool HashTable::removeEntry(int id) {
     return false;
