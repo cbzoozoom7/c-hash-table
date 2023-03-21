@@ -25,12 +25,16 @@ string HashTable::getData(int id) {
 bool HashTable::removeEntry(int id) {
     return table[hash(id)].deleteNode(id);
 }
+int HashTable::getCount() {
+    int count = 0;
+    for (int i = 0; i < HASHTABLESIZE; i++) {
+        count += table[i].getCount();
+    }
+    return count;
+}
 HashTable::HashTable() {
     
 }
 HashTable::~HashTable() {
     
-}
-int HashTable::getCount() {
-    return -1;
 }
