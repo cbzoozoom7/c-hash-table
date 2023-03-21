@@ -5,6 +5,9 @@
     #define HASHTABLE_H
     #define HASHTABLESIZE 15
     #include <string>
+    #include <iostream>
+    #include "data.h"
+    #include "linkedlist.h"
     using std::string;
     class HashTable {
         public:
@@ -17,5 +20,6 @@
             void printTable();
         private:
             int hash(int);
+            LinkedList table[HASHTABLESIZE];
     };
 #endif

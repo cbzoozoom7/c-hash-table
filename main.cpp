@@ -54,7 +54,7 @@ int main() {
     myHashTable.printTable();
     // try and put ALL the test data into the table and show what happens
     for (int i = 0; i < testdatasize; i++) {
-        cout << "Adding (" << ids[i] << ", \"" << strs[i] << "\")... ";//Adding (5, "five")... 
+        cout << "Inserting (" << ids[i] << ", \"" << strs[i] << "\")... \t";//Adding (5, "five")... 
         if (myHashTable.insertEntry(ids[i], &strs[i])) {
             cout << "done." << endl;
         } else {
@@ -70,7 +70,7 @@ int main() {
         cout << "Getting " << ids[i] << ": \"" << myHashTable.getData(ids[i]) << "\"" << endl;
     }
     for (int i = 0; i < testdatasize; i++) {
-        cout << "Removing " << ids[i] << "... ";
+        cout << "Removing " << ids[i] << "... \t";
         if (myHashTable.removeEntry(ids[i])) {
             cout << "done." << endl;
         } else {
@@ -81,7 +81,7 @@ int main() {
     myHashTable.printTable();
     cout << "Filling halfway in preparation for random testing... " << endl;
     for (int i = 0; i < (HASHTABLESIZE / 2) && i < testdatasize; i++) {
-        cout << "Adding (" << ids[i] << ", \"" << strs[i] << "\")... ";//Adding (5, "five")... 
+        cout << "Inserting (" << ids[i] << ", \"" << strs[i] << "\")... \t";//Adding (5, "five")... 
         if (myHashTable.insertEntry(ids[i], &strs[i])) {
             cout << "done." << endl;
         } else {
@@ -96,7 +96,7 @@ int main() {
         switch (rand() % SWITCHOPS) {
             case 0:
             case 1: {
-                cout << "Adding (" << ids[randTestDataIndex] << ", \"" << strs[randTestDataIndex] << "\")... ";//Adding (5, "five")... 
+                cout << "Inserting (" << ids[randTestDataIndex] << ", \"" << strs[randTestDataIndex] << "\")... \t";//Adding (5, "five")... 
                 if (myHashTable.insertEntry(ids[randTestDataIndex], &strs[randTestDataIndex])) {
                     cout << "done." << endl;
                 } else {
@@ -107,7 +107,7 @@ int main() {
                 cout << "Getting " << ids[randTestDataIndex] << ": \"" << myHashTable.getData(ids[randTestDataIndex]) << "\"" << endl;
                 break;}
             case 3: {
-                cout << "Removing " << ids[randTestDataIndex] << "... ";
+                cout << "Removing " << ids[randTestDataIndex] << "... \t";
                 if (myHashTable.removeEntry(ids[randTestDataIndex])) {
                     cout << "done." << endl;
                 } else {

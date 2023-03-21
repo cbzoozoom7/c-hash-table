@@ -12,9 +12,13 @@ void LinkedList::printList(bool backward) {
     Node *current = head;
     if (!backward) {
         while (current) {
-            printData(&current->data);
+            std::cout << current->data.id;
             current = current->next;
+            if (current) {
+                std::cout << " --> ";
+            }
         }
+        std::cout << std::endl;
     }
     if (backward && current) {
         while (current->next) {
