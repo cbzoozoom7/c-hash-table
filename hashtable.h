@@ -21,5 +21,6 @@
         private:
             int hash(int);
             LinkedList table[HASHTABLESIZE];
+            int count;
     };
 #endif

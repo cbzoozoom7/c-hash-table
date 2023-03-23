@@ -6,11 +6,15 @@ int HashTable::hash(int id) {
     return id % HASHTABLESIZE;
 }
 bool HashTable::insertEntry(int id, string *data) {
-    return table[hash(id)].addNode(id, data);
+    bool inserted = table[hash(id)].addNode(id, data);
+    if (inserted) {
+        count++;
+    }
+    return inserted;
 }
 void HashTable::printTable() {
     for (int i = 0; i < HASHTABLESIZE; i++) {
-        std::cout << "Entry " << i << ": \t";//On the assignment, the index appears to start at 1. Should I be adding 1 or something?
+        std::cout << "Entry " << i << ": \t";//On the assignment, the index appears to start at 1. Should I be adding 1 here or something?
         table[i].printList();
     }
 }
@@ -23,17 +27,17 @@ string HashTable::getData(int id) {
     return result;
 }
 bool HashTable::removeEntry(int id) {
-    return table[hash(id)].deleteNode(id);
+    bool removed = table[hash(id)].deleteNode(id);
+    if (removed) {
+        count--;
+    }
+    return removed;
 }
 int HashTable::getCount() {
-    int count = 0;
-    for (int i = 0; i < HASHTABLESIZE; i++) {
-        count += table[i].getCount();
-    }
     return count;
 }
 HashTable::HashTable() {
-    
+    count = 0;
 }
 HashTable::~HashTable() {
     
