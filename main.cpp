@@ -50,34 +50,37 @@ int main() {
     // create your hash table object here
     HashTable myHashTable;
     // show it is empty by calling getCount and printTable
-    cout << "Created. \tcount: \t" << myHashTable.getCount() << endl;
+    cout << "Created. \tCount: \t" << myHashTable.getCount() << endl;
     myHashTable.printTable();
     // try and put ALL the test data into the table and show what happens
+    cout << "Testing HashTable::insertEntry()..." << endl;
     for (int i = 0; i < testdatasize; i++) {
-        cout << "Inserting (" << ids[i] << ", \"" << strs[i] << "\")... \t";//Adding (5, "five")... 
+        cout << "insertEntry(" << ids[i] << ", \"" << strs[i] << "\"): \t";//Adding (5, "five")... 
         if (myHashTable.insertEntry(ids[i], &strs[i])) {
-            cout << "done." << endl;
+            cout << "succeeded." << endl;
         } else {
             cout << "failed." << endl;
         }
     }
-    cout << "count: \t" << myHashTable.getCount() << endl;
+    cout << "Count: \t" << myHashTable.getCount() << endl;
     myHashTable.printTable();
     // continue using and testing your table, add and remove data,
     // do whatever it takes to full test your object and prove it
     // is robust and can handle all use cases.
+    cout << "Testing HashTable::getData()..." << endl;
     for (int i = 0; i < testdatasize; i++) {
-        cout << "Getting " << ids[i] << ": \t\"" << myHashTable.getData(ids[i]) << "\"" << endl;
+        cout << "getData(" << ids[i] << "): \t\"" << myHashTable.getData(ids[i]) << "\"" << endl;
     }
+    cout << "Testing HashTable::removeEntry()..." << endl;
     for (int i = 0; i < testdatasize; i++) {
-        cout << "Removing " << ids[i] << "... \t";
+        cout << "removeEntry(" << ids[i] << "): \t";
         if (myHashTable.removeEntry(ids[i])) {
-            cout << "done." << endl;
+            cout << "succeeded." << endl;
         } else {
             cout << "failed." << endl;
         }
     }
-    cout << "count: \t" << myHashTable.getCount() << endl;
+    cout << "Count: \t" << myHashTable.getCount() << endl;
     myHashTable.printTable();
     cout << "Filling halfway in preparation for random testing... " << endl;
     for (int i = 0; i < (HASHTABLESIZE / 2) && i < testdatasize; i++) {
@@ -88,7 +91,7 @@ int main() {
             cout << "failed." << endl;
         }
     }
-    cout << "count: \t" << myHashTable.getCount() << endl;
+    cout << "Count: \t" << myHashTable.getCount() << endl;
     myHashTable.printTable();
     cout << "Random tests:" << endl;
     for (int i = 0; i < (testdatasize * RANDOMTESTSCALE); i++) {
@@ -115,7 +118,7 @@ int main() {
                 }
             break;}
             case 4: {
-                cout << "count: \t" << myHashTable.getCount() << endl;
+                cout << "Count: \t" << myHashTable.getCount() << endl;
             break;}
             default: {
                 myHashTable.printTable();
