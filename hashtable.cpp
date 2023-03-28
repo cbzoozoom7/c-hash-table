@@ -3,7 +3,11 @@
 //Created 19 Mar 2023
 #include "hashtable.h"
 int HashTable::hash(int id) {
-    return id % HASHTABLESIZE;
+    int hash = id % HASHTABLESIZE;
+    if (hash < 0) {
+        hash = 0;
+    }
+    return hash;
 }
 bool HashTable::insertEntry(int id, string *data) {
     bool inserted = table[hash(id)].addNode(id, data);
